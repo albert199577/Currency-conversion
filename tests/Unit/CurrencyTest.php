@@ -34,6 +34,6 @@ class CurrencyTest extends TestCase
         $response = $this->currencyService->conversion($data);
         $this->assertEquals('success', $response['msg']);
 
-        $this->assertEquals('$' . $amount * $exchangeRate[$data['target']], $response['amount']);
+        $this->assertEquals('$' . number_format($amount * $exchangeRate[$data['target']], 2), $response['amount']);
     }
 }

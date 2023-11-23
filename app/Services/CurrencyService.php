@@ -11,7 +11,7 @@ class CurrencyService
         $exchangeRate = config('exchangerate.currencies')[$data['source']];
 
         $amount = str_replace(['$', ','], '', $data['amount']);
-        $amount = round($amount * $exchangeRate[$data['target']], 2);
+        $amount = number_format($amount * $exchangeRate[$data['target']], 2);
 
         $response = [
             'msg' => 'success',
